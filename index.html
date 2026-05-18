@@ -79,48 +79,12 @@
       color: var(--muted);
       font-size: 16px;
     }
+
     .hero-grid{
-      margin-top: 20px;
+      margin-top: 18px;
       display:grid;
       grid-template-columns: 1fr;
       gap: 18px;
-      align-items: stretch;
-    }
-    .hero-card, .card, .link-card, .tool-card{
-      background: rgba(255,255,255,.88);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-card{
-      padding: 18px;
-    }
-    .hero-card strong{ color: var(--brand); }
-
-    .controls{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .btn{
-      border: 1px solid rgba(44,90,160,.18);
-      background: white;
-      color: var(--brand);
-      padding: 11px 14px;
-      border-radius: 14px;
-      cursor: pointer;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); background: #f8fbff; }
-    .btn.primary{
-      background: linear-gradient(135deg, var(--brand), var(--brand-2));
-      color: white;
-      border-color: transparent;
     }
 
     .toc{
@@ -160,6 +124,12 @@
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
     }
+    .card, .link-card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
     .card{
       padding: 18px;
     }
@@ -181,24 +151,6 @@
       font-size: 16px;
     }
     .muted{ color: var(--muted); }
-
-    .pill-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0 0;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--panel-2);
-      border: 1px solid rgba(44,90,160,.14);
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 700;
-    }
 
     details{
       border: 1px solid var(--line);
@@ -324,22 +276,24 @@
       font-size: 13px;
     }
 
+    /* 圖片排版優化 */
     .image-figure{
       margin: 18px auto 18px;
-      max-width: 560px;
+      max-width: 640px;
       width: 100%;
     }
     .image-figure img{
       display:block;
       width:100%;
-      max-width: 560px;
-      max-height: 260px;
+      max-width: 640px;
+      max-height: 320px;
       margin: 0 auto;
       object-fit: contain;
       border-radius: 18px;
       border: 1px solid var(--line);
       background: white;
       box-shadow: var(--shadow);
+      padding: 6px;
     }
     .image-figure figcaption{
       margin-top: 8px;
@@ -351,8 +305,8 @@
     .image-pair{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      align-items: start;
+      gap: 16px;
+      align-items: stretch;
       margin-top: 14px;
     }
     .image-pair .image-figure{
@@ -362,14 +316,7 @@
     }
     .image-pair .image-figure img{
       max-width: 100%;
-      max-height: 240px;
-    }
-
-    mark{
-      background: rgba(250, 204, 21, .35);
-      color: inherit;
-      padding: 0 2px;
-      border-radius: 4px;
+      max-height: 280px;
     }
 
     @media (max-width: 980px){
@@ -380,7 +327,14 @@
 
     @media (max-width: 760px){
       .image-pair{ grid-template-columns: 1fr; }
-      .image-figure img{ max-height: 220px; }
+      .image-figure img{ max-height: 250px; }
+    }
+
+    mark{
+      background: rgba(250, 204, 21, .35);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 4px;
     }
   </style>
 
@@ -402,14 +356,6 @@
         這是一份可直接部署到 GitHub Pages 的單頁 HTML。內容整合了地震學第四章 4.1 與 4.2 的重點，
         並加入可折疊、可跳轉的互動式閱讀介面；下方也放入你指定的兩個外部互動網站。
       </p>
-
-      <div class="hero-grid">
-        <div class="hero-card" style="grid-column: 1 / -1;">
-          <div class="controls">
-            <button class="btn primary" id="toggleAll">展開 / 收合 全部區塊</button>
-          </div>
-        </div>
-      </div>
 
       <nav class="toc" aria-label="章節導覽">
         <a href="#sec41">4.1 導論</a>
@@ -558,7 +504,7 @@
           <p>為了將全球測站觀測資料對應回震源球面上，必須考量射線傳播幾何。</p>
           <ul>
             <li><strong>射出角 $i$</strong>：射線在震源處出發時，與垂直向下方向的夾角。</li>
-            <li><strong>斯奈爾定律</strong>：$$p = \frac{\text{d}T}{\text{d}\Delta} = \frac{r_0 \sin i}{v_0}$$</li>
+            <li><strong>司乃爾定律</strong>：$$p = \frac{\text{d}T}{\text{d}\Delta} = \frac{r_0 \sin i}{v_0}$$</li>
             <li>測站距離 $\Delta$ 越遠，射出角 $i$ 越小，越接近垂直向下。</li>
             <li>通常將全球測站投影於震源下方的下半球焦點投影球（Lower Focal Hemisphere）上。</li>
           </ul>
@@ -716,14 +662,6 @@
   </div>
 
   <script>
-    const toggleAll = document.getElementById('toggleAll');
-
-    toggleAll.addEventListener('click', () => {
-      const details = Array.from(document.querySelectorAll('details'));
-      const shouldOpen = details.some(d => !d.open);
-      details.forEach(d => d.open = shouldOpen);
-    });
-
     window.addEventListener('load', () => {
       if (window.mermaid) {
         mermaid.initialize({ startOnLoad: true, theme: 'default' });
