@@ -82,7 +82,7 @@
     .hero-grid{
       margin-top: 20px;
       display:grid;
-      grid-template-columns: 1.35fr .9fr;
+      grid-template-columns: 1fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -96,54 +96,15 @@
       padding: 18px;
     }
     .hero-card strong{ color: var(--brand); }
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .stat{
-      padding: 14px;
-      border-radius: 18px;
-      background: white;
-      border: 1px solid var(--line);
-    }
-    .stat .n{
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--brand);
-      display:block;
-    }
-    .stat .t{
-      font-size: 13px;
-      color: var(--muted);
-    }
 
     .controls{
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin: 18px 0 4px;
       align-items: center;
+      justify-content: flex-start;
     }
-    .search{
-      flex: 1 1 280px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 12px 14px;
-      background: rgba(255,255,255,.9);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-    .search input{
-      border:0; outline:0;
-      background: transparent;
-      width: 100%;
-      font-size: 15px;
-      color: var(--text);
-    }
+
     .btn{
       border: 1px solid rgba(44,90,160,.18);
       background: white;
@@ -327,7 +288,6 @@
       padding: 10px 0;
     }
 
-
     .external{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -365,15 +325,15 @@
     }
 
     .image-figure{
-      margin: 18px auto 0;
-      max-width: 420px;
+      margin: 18px auto 18px;
+      max-width: 560px;
       width: 100%;
     }
     .image-figure img{
       display:block;
       width:100%;
-      max-width: 420px;
-      max-height: 200px;
+      max-width: 560px;
+      max-height: 260px;
       margin: 0 auto;
       object-fit: contain;
       border-radius: 18px;
@@ -387,6 +347,7 @@
       color: var(--muted);
       text-align: center;
     }
+
     .image-pair{
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -397,14 +358,11 @@
     .image-pair .image-figure{
       max-width: none;
       margin-top: 0;
+      margin-bottom: 0;
     }
     .image-pair .image-figure img{
       max-width: 100%;
-      max-height: 170px;
-    }
-    @media (max-width: 760px){
-      .image-pair{ grid-template-columns: 1fr; }
-      .image-figure img{ max-height: 180px; }
+      max-height: 240px;
     }
 
     mark{
@@ -415,11 +373,17 @@
     }
 
     @media (max-width: 980px){
-      .hero-grid, .external{ grid-template-columns: 1fr; }
+      .external{ grid-template-columns: 1fr; }
       .span-8, .span-7, .span-6, .span-5, .span-4, .span-3{ grid-column: span 12; }
       iframe{ height: 380px; }
     }
+
+    @media (max-width: 760px){
+      .image-pair{ grid-template-columns: 1fr; }
+      .image-figure img{ max-height: 220px; }
+    }
   </style>
+
   <script>
     window.MathJax = {
       tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
@@ -436,18 +400,13 @@
       <h1>4.1 導論與 4.2 震源機制</h1>
       <p class="lead">
         這是一份可直接部署到 GitHub Pages 的單頁 HTML。內容整合了地震學第四章 4.1 與 4.2 的重點，
-        並加入可搜尋、可折疊、可跳轉的互動式閱讀介面；下方也放入你指定的兩個外部互動網站。
+        並加入可折疊、可跳轉的互動式閱讀介面；下方也放入你指定的兩個外部互動網站。
       </p>
 
       <div class="hero-grid">
         <div class="hero-card" style="grid-column: 1 / -1;">
           <div class="controls">
-            <div class="search">
-              <span>🔎</span>
-              <input id="searchBox" type="text" placeholder="搜尋關鍵字，例如：雙力偶、走向、P軸、地震週期..." />
-            </div>
             <button class="btn primary" id="toggleAll">展開 / 收合 全部區塊</button>
-            <button class="btn" id="clearSearch">清除搜尋</button>
           </div>
         </div>
       </div>
@@ -536,13 +495,12 @@
             <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-4.png" alt="4.2-4 體波初動與節面示意圖" />
             <figcaption>圖 4.2-4｜體波初動與節面（nodal planes）示意圖。</figcaption>
           </figure>
-
         </div>
-      </details>
-
+      </div>
     </section>
 
-    <section class="section" id="sec42">      <details open data-search="初動極性 first motions nodal planes 壓縮 舒張 四象限 ambiguity">
+    <section class="section" id="sec42">
+      <details open data-search="初動極性 first motions nodal planes 壓縮 舒張 四象限 ambiguity">
         <summary>2. 體波初動 (First Motions) 與節面 (Nodal Planes)</summary>
         <div class="detail-body">
           <ul>
@@ -588,10 +546,10 @@
             其中 $\mu$ 為剪切模量，$\bar{D}$ 為平均滑移量，$S$ 為破裂面積。
           </div>
         </div>
-          <figure class="image-figure">
-            <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-5.png" alt="4.2-5 雙力偶模型示意圖" />
-            <figcaption>圖 4.2-5｜雙力偶模型示意。</figcaption>
-          </figure>
+        <figure class="image-figure">
+          <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-5.png" alt="4.2-5 雙力偶模型示意圖" />
+          <figcaption>圖 4.2-5｜雙力偶模型示意。</figcaption>
+        </figure>
       </details>
 
       <details open data-search="射出角 take-off angle lower focal hemisphere 斯奈爾定律 p=dT/dΔ">
@@ -613,11 +571,11 @@
           <p>使用立體投影網（stereonet）將三維下半球的壓縮與舒張分佈投影到二維平面，形成常見的震源機制解「沙灘球（beachball）」圖樣。</p>
 
           <div class="image-pair">
-            <figure class="image-figure" style="margin:0;">
+            <figure class="image-figure">
               <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-14.png" alt="4.2-14 震源機制與節面投影示意圖" />
               <figcaption>圖 4.2-14｜震源機制與節面投影示意。</figcaption>
             </figure>
-            <figure class="image-figure" style="margin:0;">
+            <figure class="image-figure">
               <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-15.png" alt="4.2-15 不同斷層型態的沙灘球特徵" />
               <figcaption>圖 4.2-15｜不同斷層型態的沙灘球特徵。</figcaption>
             </figure>
@@ -754,74 +712,11 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="card span-12">
-        <h2 style="margin-top:0;">補充：這份頁面如何用在 GitHub 上</h2>
-        <ol>
-          <li>把這個檔案存成 <code>index.html</code>。</li>
-          <li>放到 GitHub repository 根目錄。</li>
-          <li>到 GitHub Pages 設定中，選擇 main branch 與 root /docs 作為發佈來源。</li>
-        </ol>
-        <p class="muted">如果你要，我也可以再幫你把這份頁面拆成「更像課堂網站」的版本，加入側邊欄、章節進度條或測驗題。 </p>
-      </div>
-    </section>
-
     <div class="footer">以第 4 章內容製作 · HTML + MathJax + Mermaid · 可直接部署到 GitHub Pages</div>
   </div>
 
   <script>
-    const searchBox = document.getElementById('searchBox');
-    const clearSearch = document.getElementById('clearSearch');
     const toggleAll = document.getElementById('toggleAll');
-    const searchable = Array.from(document.querySelectorAll('[data-search], details'));
-
-    function highlightText(root, term){
-      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
-      const nodes = [];
-      while (walker.nextNode()) nodes.push(walker.currentNode);
-
-      nodes.forEach(node => {
-        const parent = node.parentNode;
-        if (!parent) return;
-        if (parent.closest && parent.closest('script, style, mark')) return;
-        const text = node.nodeValue;
-        if (!term){
-          if (parent.dataset && parent.dataset.originalText) {
-            parent.innerHTML = parent.dataset.originalText;
-            delete parent.dataset.originalText;
-          }
-          return;
-        }
-      });
-    }
-
-    function clearHighlights(){
-      document.querySelectorAll('mark').forEach(mark => {
-        const text = document.createTextNode(mark.textContent);
-        mark.replaceWith(text);
-      });
-    }
-
-    function normalize(s){
-      return (s || '').toLowerCase().replace(/\s+/g, '');
-    }
-
-    function filterCards(term){
-      clearHighlights();
-      const q = normalize(term);
-      searchable.forEach(el => {
-        const txt = normalize(el.innerText + ' ' + (el.getAttribute('data-search') || ''));
-        const show = !q || txt.includes(q);
-        el.style.display = show ? '' : 'none';
-      });
-    }
-
-    searchBox.addEventListener('input', e => filterCards(e.target.value));
-    clearSearch.addEventListener('click', () => {
-      searchBox.value = '';
-      filterCards('');
-      searchBox.focus();
-    });
 
     toggleAll.addEventListener('click', () => {
       const details = Array.from(document.querySelectorAll('details'));
@@ -829,7 +724,6 @@
       details.forEach(d => d.open = shouldOpen);
     });
 
-    // Mermaid rendering
     window.addEventListener('load', () => {
       if (window.mermaid) {
         mermaid.initialize({ startOnLoad: true, theme: 'default' });
