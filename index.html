@@ -10,7 +10,8 @@
         window.MathJax = {
             tex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
             }
         };
     </script>
@@ -37,10 +38,10 @@
                 <div>
                     <span class="bg-blue-500 text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded">Seismology Chapter 4</span>
                     <h1 class="text-3xl font-extrabold mt-2 tracking-tight">震源物理與機制分析</h1>
-                    <p class="text-slate-300 mt-1 text-sm sm:text-base">互動式講義與學術工具網頁</p>
+                    <p class="text-slate-300 mt-1 text-sm sm:text-base">互動式學術網頁筆記系統</p>
                 </div>
                 <div class="text-xs bg-black/30 backdrop-blur p-3 rounded-lg border border-white/10 text-slate-300">
-                    <i class="fa-solid rel font-mono text-blue-400 mr-1"></i> Source Physics Refence Review
+                    <i class="fa-solid fa-code text-blue-400 mr-1"></i> Source Physics Reference Review
                 </div>
             </div>
         </div>
@@ -64,9 +65,9 @@
 
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8">
         
-        <section id="sec41" class="tab-content active space-y-8 animate-fadeIn">
+        <section id="sec41" class="tab-content active space-y-8">
             <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900 flex items-center">
+                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-990 flex items-center">
                     <span class="w-2 h-6 bg-blue-600 rounded mr-2.5"></span>1. 地震學的核心定義與演進
                 </h2>
                 <div class="grid md:grid-cols-2 gap-6 mt-4">
@@ -130,39 +131,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900 flex items-center">
-                    <span class="w-2 h-6 bg-blue-600 rounded mr-2.5"></span>3. 多學科整合的觀測手段與反演挑戰
-                </h2>
-                <div class="grid md:grid-cols-2 gap-6 mt-4">
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2 text-sm"><i class="fa-solid fa-layer-group text-blue-600 mr-1"></i> 多學科觀測手段</h3>
-                        <ul class="text-xs text-slate-600 space-y-2">
-                            <li><b class="text-slate-800">地震學</b>：研究同震破裂與波形傳播的核心工具（深源及海洋地震區唯一管道）。</li>
-                            <li><b class="text-slate-800">歷史記錄</b>：為特定的斷層段提供長期的地震重現週期歷史數據。</li>
-                            <li><b class="text-slate-800">地質調查</b>：用以確定斷層走向、幾何形態、構造歷史以及古地震活動背景。</li>
-                            <li><b class="text-slate-800">大地測量學 (Geodesy)</b>：利用 GPS、InSAR 等技術精密量測震前、震中及震後的三維地面形變。</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-slate-900 mb-2 text-sm"><i class="fa-solid fa-calculator text-indigo-600 mr-1"></i> 反演問題 (Inverse Problem)</h3>
-                        <div class="space-y-3">
-                            <div class="bg-blue-50/50 p-2.5 rounded border border-blue-100">
-                                <span class="text-xs font-bold text-blue-900">運動學 (Kinematics)</span>
-                                <p class="text-xs text-slate-600 mt-0.5">優異地刻畫斷層破裂的幾何形狀、滑移方向、滑移量以及滑移在破裂面上的時空分佈。</p>
-                            </div>
-                            <div class="bg-purple-50/50 p-2.5 rounded border border-purple-100">
-                                <span class="text-xs font-bold text-purple-900">動力學 (Dynamics)</span>
-                                <p class="text-xs text-slate-600 mt-0.5">單純波動信息有限。必須結合實驗室岩石摩擦力學實驗以及理論斷裂物理，探討應力降過程與摩擦特徵。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <section id="sec42" class="tab-content space-y-8 animate-fadeIn">
+        <section id="sec42" class="tab-content space-y-8">
             <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900 flex items-center">
                     <span class="w-2 h-6 bg-blue-600 rounded mr-2.5"></span>1. 斷層幾何描述 (Fault Geometry)
@@ -182,17 +153,17 @@
                             <tr>
                                 <td class="p-3 font-semibold text-slate-900">走向角 (Strike)</td>
                                 <td class="p-3">$\phi_f$</td>
-                                <td class="p-3">斷層面與水平面交線（走向線）相對於正北方向的順時針夾角 ($0^\circ \le \phi_f < 360^\circ$)。</td>
+                                <td class="p-3">$0^\circ \le \phi_f < 360^\circ$。斷層面與水平面交線（走向線）相對於正北方向的順時針夾角。</td>
                             </tr>
                             <tr>
                                 <td class="p-3 font-semibold text-slate-900">傾角 (Dip)</td>
                                 <td class="p-3">$\delta$</td>
-                                <td class="p-3">斷層面與水平面之間的銳角夾角 ($0^\circ \le \delta \le 90^\circ$)。</td>
+                                <td class="p-3">$0^\circ \le \delta \le 90^\circ$。斷層面與水平面之間的銳角夾角。</td>
                             </tr>
                             <tr>
                                 <td class="p-3 font-semibold text-slate-900">滑移角 (Rake / Slip)</td>
                                 <td class="p-3">$\lambda$</td>
-                                <td class="p-3">在斷層面上，上盤相對於下盤的運動方向與走向軸的逆時針夾角 ($-180^\circ < \lambda \le 180^\circ$)。</td>
+                                <td class="p-3">$-180^\circ < \lambda \le 180^\circ$。在斷層面上，上盤相對於下盤的運動方向與走向軸的逆時針夾角。</td>
                             </tr>
                         </tbody>
                     </table>
@@ -203,7 +174,7 @@
                         <span class="font-bold">走向滑移斷層</span><br>左移 $\lambda = 0^\circ$ | 右移 $\lambda = 180^\circ$
                     </div>
                     <div class="bg-rose-50 text-rose-900 p-3 rounded border border-rose-200">
-                        <span class="font-bold">正斷層 (Normal)</span><br>$\lambda = 270^\circ$ / $-90^\circ$ (受拉張控制)
+                        <span class="font-bold">正斷層 (Normal)</span><br>$\lambda = 270^\circ$ 或 $\lambda = -90^\circ$ (受拉張控制)
                     </div>
                     <div class="bg-blue-50 text-blue-900 p-3 rounded border border-blue-200">
                         <span class="font-bold">逆衝/逆斷層 (Thrust)</span><br>$\lambda = 90^\circ$ (受擠壓控制)
@@ -238,8 +209,6 @@
                 <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900 flex items-center">
                     <span class="w-2 h-6 bg-blue-600 rounded mr-2.5"></span>3. 雙力偶模型 (Double-Couple) 與遠場位移公式
                 </h2>
-                <p class="text-slate-600 text-xs my-2">地震學家將複雜的剪切破裂簡化為一組無淨力矩的等效體力源。以下為遠場位移控制方程：</p>
-                
                 <div class="space-y-4 mt-4">
                     <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-xs overflow-x-auto">
                         <div class="text-cyan-400 font-bold mb-1">// P波遠場位移 (四瓣狀輻射圖樣)</div>
@@ -247,7 +216,7 @@
                     </div>
 
                     <div class="bg-slate-900 text-slate-100 p-4 rounded-lg font-mono text-xs overflow-x-auto">
-                        <div class="text-cyan-400 font-bold mb-1">// S波遠場位移 (無簡單零值節面，平均振幅約為P波的5倍)</div>
+                        <div class="text-cyan-400 font-bold mb-1">// S波遠場位移</div>
                         $$u_\theta = \frac{1}{4\pi\rho\beta^3 r} F(t - r/\beta) \cos 2\theta \cos\phi$$
                         $$u_\phi = \frac{1}{4\pi\rho\beta^3 r} F(t - r/\beta) (-\cos\theta \sin\phi)$$
                     </div>
@@ -256,7 +225,7 @@
                 <div class="mt-4 bg-blue-50 p-4 rounded-lg border border-blue-100 text-xs text-blue-950">
                     <h4 class="font-bold"><i class="fa-solid fa-chart-line mr-1"></i> 標量地震矩 (Scalar Seismic Moment, $M_0$)</h4>
                     <p class="mt-1 font-mono text-sm">$$M_0 = \mu \bar{D} S$$</p>
-                    <p class="mt-1 text-slate-600">其中 $\mu$ 為介質剪切模量，$\bar{D}$ 為平均滑移量，$S$ 為破裂面積。此物理量最能反映地震本質大小，不受儀器與觀測波段限制。</p>
+                    <p class="mt-1 text-slate-600">其中 $\mu$ 為介質剪切模量，$\bar{D}$ 為平均滑移量，$S$ 為破裂面積。此物理量最能反映地震本質大小。</p>
                 </div>
             </div>
 
@@ -270,7 +239,7 @@
                         <h3 class="font-bold text-slate-900 mb-1">法向量 $\mathbf{\hat{n}}$ 與滑移向量 $\mathbf{\hat{d}}$ 的地理坐標分量表示：</h3>
                         <div class="bg-slate-50 p-4 rounded border border-slate-200 overflow-x-auto">
                             $$\mathbf{\hat{n}} = \begin{pmatrix} n_1 \\ n_2 \\ n_3 \end{pmatrix} = \begin{pmatrix} -\sin\delta \sin\phi_f \\ -\sin\delta \cos\phi_f \\ \cos\delta \end{pmatrix}$$
-                            $$\mathbf{\hat{d}} = \begin{pmatrix} d_1 \\ d_2 \\ d_3 \end{pmatrix} = \begin{pmatrix} \cos\lambda \cos\phi_f + \sin\lambda \cos\delta \sin\phi_f \\ -\cos\lambda \sin\phi_f + \sin\lambda \cos\delta \cos\phi_f \\ \sin\lambda \sin\delta \end{pmatrix}$$
+                            $$\mathbf{\hat{d}} = \begin{pmatrix} d_1 \\ d_2 \\ d_3 \end{pmatrix} = \begin{pmatrix} \sin\lambda \cos\phi_f \cos\delta - \cos\lambda \sin\phi_f \cos\delta \\ \sin\lambda \sin\phi_f \cos\delta + \cos\lambda \cos\phi_f \cos\delta \\ \cos\lambda \sin\delta \end{pmatrix}$$
                         </div>
                     </div>
 
@@ -286,7 +255,7 @@
             </div>
         </section>
 
-        <section id="interactive" class="tab-content space-y-8 animate-fadeIn">
+        <section id="interactive" class="tab-content space-y-8">
             
             <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900 flex items-center">
@@ -360,7 +329,6 @@
     </footer>
 
     <script>
-        // Tab system control
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
@@ -369,14 +337,12 @@
             document.getElementById('btn-' + tabId).classList.add('active');
         }
 
-        // Nodal Plane Slider Calculator Logic
         function calculateNodalPlane() {
             const d1 = parseFloat(document.getElementById('input-dip1').value);
             const r1 = parseFloat(document.getElementById('input-rake1').value);
             
             document.getElementById('dip1-val').innerText = d1;
             document.getElementById('rake1-val').innerText = r1;
-            
             document.getElementById('calc-dip1').innerText = d1;
             document.getElementById('calc-rake1').innerText = r1;
 
@@ -392,56 +358,34 @@
             document.getElementById('res-cosdip2').innerText = cosDip2.toFixed(3);
 
             if (Math.abs(cosDip2) > 1) {
-                document.getElementById('res-dip2').innerText = "幾何不允許（無實數解）";
+                document.getElementById('res-dip2').innerText = "無實數解 (幾何不允許)";
             } else {
-                const d2Rad = Math.acos(Math.abs(cosDip2)); // Dip always acute 0-90
+                const d2Rad = Math.acos(Math.abs(cosDip2)); 
                 const d2Deg = d2Rad * 180 / Math.PI;
                 document.getElementById('res-dip2').innerText = d2Deg.toFixed(2);
             }
         }
 
-        // Beachball Graphics and Description Logic
         const bbData = {
             'strike-slip': {
-                svg: `
-                    <circle cx="50" cy="50" r="46" fill="white" stroke="black" stroke-width="2"/>
-                    <path d="M 50,4 A 46,46 0 0,1 96,50 L 50,50 Z" fill="black" />
-                    <path d="M 4,50 A 46,46 0 0,1 50,96 L 50,50 Z" fill="black" />
-                    <line x1="50" y1="4" x2="50" y2="96" stroke="black" stroke-width="1.5"/>
-                    <line x1="4" y1="50" x2="96" y2="50" stroke="black" stroke-width="1.5"/>
-                `,
-                desc: `
-                    <span class="text-blue-400 font-bold">// 走向滑移斷層機制</span><br>
-                    • 投影圖樣：完美十字棋盤對稱四象限。<br>
-                    • 應力狀態：最大主應力(P軸)與最小主應力(T軸)皆位於水平面交互作用。<br>
-                    • 中性軸 (B軸)：完全垂直地表。
-                `
+                svg: `<circle cx="50" cy="50" r="46" fill="white" stroke="black" stroke-width="2"/>
+                      <path d="M 50,4 A 46,46 0 0,1 96,50 L 50,50 Z" fill="black" />
+                      <path d="M 4,50 A 46,46 0 0,1 50,96 L 50,50 Z" fill="black" />
+                      <line x1="50" y1="4" x2="50" y2="96" stroke="black" stroke-width="1.5"/>
+                      <line x1="4" y1="50" x2="96" y2="50" stroke="black" stroke-width="1.5"/>`,
+                desc: `<span class="text-blue-400 font-bold">// 走向滑移斷層機制</span><br>• 投影圖樣：完美十字棋盤對稱四象限。<br>• 應力狀態：最大主應力(P軸)與最小主應力(T軸)皆位於水平面交互作用。<br>• 中性軸 (B軸)：完全垂直地表。`
             },
             'thrust': {
-                svg: `
-                    <circle cx="50" cy="50" r="46" fill="white" stroke="black" stroke-width="2"/>
-                    <path d="M 50,4 A 46,46 0 0,0 50,96 A 46,46 0 0,0 50,4" fill="black"/>
-                    <path d="M 50,4 A 30,46 0 0,1 50,96 A 46,46 0 0,0 50,4" fill="white"/>
-                    <path d="M 50,4 A 30,46 0 0,0 50,96 A 46,46 0 0,1 50,4" fill="white"/>
-                `,
-                desc: `
-                    <span class="text-indigo-400 font-bold">// 逆衝斷層機制 (Thrust)</span><br>
-                    • 投影圖樣：經典三象限「貓眼狀」，核心大片區域為壓縮黑色陰影區。<br>
-                    • 應力狀態：地殼受到強烈水平向擠壓推擠，使上盤沿斷層面向上爬升。<br>
-                    • 張力軸 (T軸)：接近垂直。
-                `
+                svg: `<circle cx="50" cy="50" r="46" fill="white" stroke="black" stroke-width="2"/>
+                      <path d="M 50,4 A 46,46 0 0,0 50,96 A 46,46 0 0,0 50,4" fill="black"/>
+                      <path d="M 50,4 A 30,46 0 0,1 50,96 A 46,46 0 0,0 50,4" fill="white"/>
+                      <path d="M 50,4 A 30,46 0 0,0 50,96 A 46,46 0 0,1 50,4" fill="white"/>`,
+                desc: `<span class="text-indigo-400 font-bold">// 逆衝斷層機制 (Thrust)</span><br>• 投影圖樣：經典三象限「貓眼狀」，核心大片區域為壓縮黑色陰影區。<br>• 應力狀態：地殼受到強烈水平向擠壓推擠，使上盤沿斷層面向上爬升。<br>• 張力軸 (T軸)：接近垂直。`
             },
             'normal': {
-                svg: `
-                    <circle cx="50" cy="50" r="46" fill="black" stroke="black" stroke-width="2"/>
-                    <path d="M 50,4 A 30,46 0 0,1 50,96 A 30,46 0 0,1 50,4" fill="white"/>
-                `,
-                desc: `
-                    <span class="text-rose-400 font-bold">// 正斷層機制 (Normal)</span><br>
-                    • 投影圖樣：三象限「貓眼狀」，中央為白色舒張象限，外側兩側為黑色壓縮區。<br>
-                    • 應力狀態：地殼受區域拉張應力主導，重力引導上盤順著斷層面向下滑移。<br>
-                    • 壓力軸 (P軸)：垂直。
-                `
+                svg: `<circle cx="50" cy="50" r="46" fill="black" stroke="black" stroke-width="2"/>
+                      <path d="M 50,4 A 30,46 0 0,1 50,96 A 30,46 0 0,1 50,4" fill="white"/>`,
+                desc: `<span class="text-rose-400 font-bold">// 正斷層機制 (Normal)</span><br>• 投影圖樣：三象限「貓眼狀」，中央為白色舒張象限，外側兩側為黑色壓縮區。<br>• 應力狀態：地殼受區域拉張應力主導，重力引導上盤順著斷層面向下滑移。<br>• 壓力軸 (P軸)：垂直。`
             }
         };
 
@@ -449,19 +393,12 @@
             document.querySelectorAll('.bb-btn').forEach(btn => {
                 btn.classList.remove('bg-blue-50', 'border-blue-500', 'font-bold');
             });
-            
-            const activeBtnMap = {
-                'strike-slip': 'btn-bb-ss',
-                'thrust': 'btn-bb-t',
-                'normal': 'btn-bb-n'
-            };
+            const activeBtnMap = { 'strike-slip': 'btn-bb-ss', 'thrust': 'btn-bb-t', 'normal': 'btn-bb-n' };
             document.getElementById(activeBtnMap[type]).classList.add('bg-blue-50', 'border-blue-500', 'font-bold');
-            
             document.getElementById('beachball-svg').innerHTML = bbData[type].svg;
             document.getElementById('bb-description').innerHTML = bbData[type].desc;
         }
 
-        // Initialize dynamic widgets on load
         window.onload = function() {
             updateBeachball('strike-slip');
             calculateNodalPlane();
