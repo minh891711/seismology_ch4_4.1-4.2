@@ -272,6 +272,27 @@
     .callout.tip{ border-left-color: var(--good); }
     .callout.warn{ border-left-color: var(--warn); }
 
+    .image-figure{
+      margin: 18px 0;
+      padding: 14px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .image-figure img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+    .image-figure figcaption{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
     .timeline{
       display:grid;
       gap: 12px;
@@ -466,50 +487,6 @@
         並加入可搜尋、可折疊、可跳轉的互動式閱讀介面；下方也放入你指定的兩個外部互動網站。
       </p>
 
-      <div class="hero-grid">
-        <div class="hero-card">
-          <strong>你會在這頁看到：</strong>
-          <div class="pill-row">
-            <span class="pill">彈性回跳理論</span>
-            <span class="pill">地震週期</span>
-            <span class="pill">斷層幾何</span>
-            <span class="pill">初動極性</span>
-            <span class="pill">雙力偶模型</span>
-            <span class="pill">沙灘球</span>
-            <span class="pill">P / T / B 軸</span>
-            <span class="pill">解析轉換公式</span>
-          </div>
-          <div class="controls">
-            <div class="search">
-              <span>🔎</span>
-              <input id="searchBox" type="text" placeholder="搜尋關鍵字，例如：雙力偶、走向、P軸、地震週期..." />
-            </div>
-            <button class="btn primary" id="toggleAll">展開 / 收合 全部區塊</button>
-            <button class="btn" id="clearSearch">清除搜尋</button>
-          </div>
-        </div>
-        <div class="hero-card">
-          <strong>快速資訊</strong>
-          <div class="stats">
-            <div class="stat">
-              <span class="n">4.1</span>
-              <span class="t">導論：地震如何產生</span>
-            </div>
-            <div class="stat">
-              <span class="n">4.2</span>
-              <span class="t">震源機制：如何描述破裂</span>
-            </div>
-            <div class="stat">
-              <span class="n">2</span>
-              <span class="t">外部互動網站已加入</span>
-            </div>
-          </div>
-          <div class="callout tip" style="margin-top:14px;">
-            <strong>部署提示：</strong>把這個檔案命名為 <code>index.html</code> 放到 GitHub Pages 的根目錄即可。
-          </div>
-        </div>
-      </div>
-
       <nav class="toc" aria-label="章節導覽">
         <a href="#sec41">4.1 導論</a>
         <a href="#sec42">4.2 震源機制</a>
@@ -558,6 +535,11 @@
           <div class="callout">
             <strong>觀念上的重大突破：</strong>在這套理論提出之前，常把地表斷層破裂看成地震的副作用；Reid 的理論確認了「斷層的突發破裂與滑移」本身就是地震的本質原因。
           </div>
+
+          <figure class="image-figure">
+            <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.1-2.png" alt="4.1-2 圖：彈性回跳理論示意圖" />
+            <figcaption>圖 4.1-2｜彈性回跳理論示意圖。</figcaption>
+          </figure>
         </div>
 
         <div class="card span-12" data-search="地震週期 interseismic preseismic coseismic postseismic 前震 餘震 餘滑">
@@ -623,6 +605,11 @@
             </ul>
             <p class="muted">真實地震多為斜滑斷層（oblique-slip），滑移角常介於上述特殊值之間。</p>
           </div>
+
+          <figure class="image-figure">
+            <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-2.png" alt="4.2-2 斷層幾何與參數示意圖" />
+            <figcaption>圖 4.2-2｜斷層幾何與走向、傾角、滑移角的關係。</figcaption>
+          </figure>
         </div>
       </details>
 
@@ -719,6 +706,11 @@
             </div>
           </div>
 
+          <figure class="image-figure">
+            <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-4.png" alt="4.2-4 沙灘球與震源機制示意圖" />
+            <figcaption>圖 4.2-4｜不同斷層型態對應的沙灘球投影特徵。</figcaption>
+          </figure>
+
           <h4>典型震源機制球特徵對照表</h4>
           <table>
             <thead>
@@ -771,6 +763,11 @@
               <li>Null 軸垂直 → 以水平剪切為主導，形成走向滑移斷層。</li>
             </ul>
           </div>
+
+          <figure class="image-figure">
+            <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-5.png" alt="4.2-5 P軸、T軸與 B 軸示意圖" />
+            <figcaption>圖 4.2-5｜震源機制解與 P 軸、T 軸、B 軸的幾何關係。</figcaption>
+          </figure>
         </div>
       </details>
 
@@ -847,18 +844,6 @@
           </div>
           <div class="fallback">若此區塊無法直接顯示，通常是對方網站限制 iframe；按上方按鈕即可開啟。</div>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card span-12">
-        <h2 style="margin-top:0;">補充：這份頁面如何用在 GitHub 上</h2>
-        <ol>
-          <li>把這個檔案存成 <code>index.html</code>。</li>
-          <li>放到 GitHub repository 根目錄。</li>
-          <li>到 GitHub Pages 設定中，選擇 main branch 與 root /docs 作為發佈來源。</li>
-        </ol>
-        <p class="muted">如果你要，我也可以再幫你把這份頁面拆成「更像課堂網站」的版本，加入側邊欄、章節進度條或測驗題。 </p>
       </div>
     </section>
 
