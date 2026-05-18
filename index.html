@@ -327,75 +327,6 @@
       padding: 10px 0;
     }
 
-    .beachball-grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 10px;
-    }
-    .beach{
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: white;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      min-height: 200px;
-    }
-    .ball{
-      width: 138px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      margin: 12px auto 10px;
-      position: relative;
-      overflow: hidden;
-      border: 3px solid #1f2937;
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0 18%, #1f2937 18% 19%, transparent 19% 100%),
-        conic-gradient(from 45deg,
-          #111827 0 25%,
-          #ffffff 25% 50%,
-          #111827 50% 75%,
-          #ffffff 75% 100%);
-    }
-    .ball.thrust{
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0 18%, #1f2937 18% 19%, transparent 19% 100%),
-        conic-gradient(from 0deg,
-          #111827 0 34%,
-          #ffffff 34% 50%,
-          #111827 50% 84%,
-          #ffffff 84% 100%);
-    }
-    .ball.normal{
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0 18%, #1f2937 18% 19%, transparent 19% 100%),
-        conic-gradient(from 0deg,
-          #ffffff 0 34%,
-          #111827 34% 50%,
-          #ffffff 50% 84%,
-          #111827 84% 100%);
-    }
-    .ball.oblique{
-      background:
-        radial-gradient(circle at 50% 50%, transparent 0 18%, #1f2937 18% 19%, transparent 19% 100%),
-        conic-gradient(from 15deg,
-          #111827 0 20%,
-          #ffffff 20% 39%,
-          #111827 39% 62%,
-          #ffffff 62% 100%);
-    }
-    .legend{
-      display:flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted);
-    }
-    .legend span{
-      display:inline-flex; align-items:center; gap:6px;
-    }
-    .dot{
-      width: 10px; height: 10px; border-radius: 999px; display:inline-block;
-      border:1px solid rgba(0,0,0,.08);
-    }
-    .dot.black{ background:#111827; }
-    .dot.white{ background:white; }
 
     .external{
       display:grid;
@@ -435,14 +366,14 @@
 
     .image-figure{
       margin: 18px auto 0;
-      max-width: 760px;
+      max-width: 420px;
       width: 100%;
     }
     .image-figure img{
       display:block;
       width:100%;
-      max-width: 760px;
-      max-height: 340px;
+      max-width: 420px;
+      max-height: 200px;
       margin: 0 auto;
       object-fit: contain;
       border-radius: 18px;
@@ -463,9 +394,17 @@
       align-items: start;
       margin-top: 14px;
     }
+    .image-pair .image-figure{
+      max-width: none;
+      margin-top: 0;
+    }
+    .image-pair .image-figure img{
+      max-width: 100%;
+      max-height: 170px;
+    }
     @media (max-width: 760px){
       .image-pair{ grid-template-columns: 1fr; }
-      .image-figure img{ max-height: 280px; }
+      .image-figure img{ max-height: 180px; }
     }
 
     mark{
@@ -478,7 +417,6 @@
     @media (max-width: 980px){
       .hero-grid, .external{ grid-template-columns: 1fr; }
       .span-8, .span-7, .span-6, .span-5, .span-4, .span-3{ grid-column: span 12; }
-      .beachball-grid{ grid-template-columns: 1fr; }
       iframe{ height: 380px; }
     }
   </style>
@@ -556,7 +494,7 @@
       <h2>4.1 導論 (Introduction)</h2>
       <p class="section-note">這一節回答的是：「地震學從哪裡來？地震怎麼發生？我們又怎麼觀測它？」</p>
 
-      <figure class="image-figure" style="max-width:720px;">
+      <figure class="image-figure">
         <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.1-2.png" alt="4.1-2 地震學導論與震源物理示意圖" />
         <figcaption>圖 4.1-2｜地震學導論與震源物理的核心概念示意。</figcaption>
       </figure>
@@ -610,49 +548,6 @@
             <li><strong>同震期 (Coseismic phase)</strong>：僅持續數秒至數十秒。斷層發生快速破裂滑動，向外輻射強烈地震波。</li>
             <li><strong>震後期 (Postseismic phase)</strong>：地震過後系統尚未恢復穩定，伴隨餘震（aftershocks）與暫態餘滑（afterslip），持續數月至數年，之後進入下一個週期。</li>
           </ol>
-          <div class="callout warn">這段概念很重要：地震不是單次事件，而是長時間循環中的一個瞬間。</div>
-        </div>
-
-        <div class="card span-12" data-search="多學科整合觀測手段 地震學 歷史記錄 地質調查 大地測量 GPS InSAR">
-          <h3>3. 多學科整合的觀測手段</h3>
-          <ul>
-            <li><strong>地震學</strong>：研究同震破裂與波形傳播的核心工具；對深源地震及海洋地震區尤其重要。</li>
-            <li><strong>歷史記錄</strong>：為特定斷層段提供長期的地震重現週期歷史數據。</li>
-            <li><strong>地質調查（野外與水底）</strong>：用來確定斷層走向、幾何形態、構造歷史與古地震活動背景。</li>
-            <li><strong>大地測量學 (Geodesy)</strong>：利用 GPS、InSAR 精密量測震前、震中、震後的三維地面形變，推求鎖定深度與餘滑特性。</li>
-          </ul>
-        </div>
-
-        <div class="card span-12" data-search="反演問題 inverse problem 運動學 kinematics 動力學 dynamics 斷層破裂">
-          <h3>4. 地震學的反演挑戰：運動學與動力學</h3>
-          <p>
-            利用觀測到的地震波推求震源參數，本質上是一個<strong>反演問題（inverse problem）</strong>。
-          </p>
-          <ul>
-            <li><strong>運動學（Kinematics）</strong>：地震波形與振幅能優異地刻畫斷層破裂的幾何形狀、滑移方向、滑移量以及滑移在破裂面上的時空分佈。</li>
-            <li><strong>動力學（Dynamics）</strong>：單純地震波對摩擦係數隨滑動速度與溫度的改變、應力降過程等物理本質提供的資訊有限，需結合岩石摩擦實驗與斷裂物理。</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="sec42">
-      <h2>4.2 震源機制 (Focal Mechanisms)</h2>
-      <p class="section-note">這一節回答的是：「斷層怎麼描述？波形怎麼對應到斷層面？沙灘球又如何讀出應力方向？」</p>
-
-      <details open data-search="斷層幾何描述 fault geometry 走向 strike 傾角 dip 滑移角 rake 法向量 滑移向量">
-        <summary>1. 斷層幾何描述 (Fault Geometry)</summary>
-        <div class="detail-body">
-          <p>地震學中將斷層簡化為一個平面（planar surface），兩側相對移動。其空間幾何特徵可由走向、傾角與滑移角唯一確定。</p>
-          <ul>
-            <li><strong>走向角（Strike, $\phi_f$）</strong>：斷層面與水平面交線相對於正北方向的順時針夾角，範圍為 $0^\circ \le \phi_f &lt; 360^\circ$。</li>
-            <li><strong>傾角（Dip, $\delta$）</strong>：斷層面與水平面之間的銳角，範圍為 $0^\circ \le \delta \le 90^\circ$。</li>
-            <li><strong>滑移角（Slip angle / Rake, $\lambda$）</strong>：在斷層面上，上盤相對於下盤的運動方向與走向軸之間的逆時針夾角，範圍為 $-180^\circ &lt; \lambda \le 180^\circ$。</li>
-            <li><strong>法向量</strong> $\mathbf{\hat{n}}$：垂直於斷層面的單位向量。</li>
-            <li><strong>滑移向量</strong> $\mathbf{\hat{d}}$：代表上盤相對於下盤運動方向的單位向量。</li>
-          </ul>
-          <p>因滑移運動被局限在斷層面上，因此滿足 $\mathbf{\hat{n}} \cdot \mathbf{\hat{d}} = 0$。</p>
-
           <div class="callout warn">
             <strong>三種基本斷層類型與滑移角對應</strong>
             <ul>
@@ -662,7 +557,7 @@
             </ul>
             <p class="muted">真實地震多為斜滑斷層（oblique-slip），滑移角常介於上述特殊值之間。</p>
           </div>
-        
+
           <figure class="image-figure">
             <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-2.png" alt="4.2-2 斷層幾何與參數示意圖" />
             <figcaption>圖 4.2-2｜斷層幾何與走向、傾角、滑移角的關係。</figcaption>
@@ -672,10 +567,13 @@
             <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-4.png" alt="4.2-4 體波初動與節面示意圖" />
             <figcaption>圖 4.2-4｜體波初動與節面（nodal planes）示意圖。</figcaption>
           </figure>
+
         </div>
       </details>
 
-      <details open data-search="初動極性 first motions nodal planes 壓縮 舒張 四象限 ambiguity">
+    </section>
+
+    <section class="section" id="sec42">      <details open data-search="初動極性 first motions nodal planes 壓縮 舒張 四象限 ambiguity">
         <summary>2. 體波初動 (First Motions) 與節面 (Nodal Planes)</summary>
         <div class="detail-body">
           <ul>
@@ -742,12 +640,12 @@
           <p>使用立體投影網（stereonet）將三維下半球的壓縮與舒張分佈投影到二維平面，形成常見的震源機制解「沙灘球（beachball）」圖樣。</p>
 
           <div class="image-pair">
-            <figure class="image-figure" style="margin:0; max-width: 100%;">
-              <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-14.png" alt="4.2-14 震源機制解示意圖一" />
+            <figure class="image-figure" style="margin:0;">
+              <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-14.png" alt="4.2-14 震源機制與節面投影示意圖" />
               <figcaption>圖 4.2-14｜震源機制與節面投影示意。</figcaption>
             </figure>
-            <figure class="image-figure" style="margin:0; max-width: 100%;">
-              <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-15.png" alt="4.2-15 震源機制解示意圖二" />
+            <figure class="image-figure" style="margin:0;">
+              <img src="https://raw.githubusercontent.com/minh891711/seismology_ch4_4.1-4.2/main/photos/4.2-15.png" alt="4.2-15 不同斷層型態的沙灘球特徵" />
               <figcaption>圖 4.2-15｜不同斷層型態的沙灘球特徵。</figcaption>
             </figure>
           </div>
